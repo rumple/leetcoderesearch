@@ -26,9 +26,9 @@ The empirical ratio table (t(3n)/t(n)) is the ground truth for complexity class:
 # LeetCode CLI
 brew install j178/tap/leetgo
 
-# Authenticate — run this from your solutions workspace (NOT the plugin directory)
-# leetgo will pick up cookies automatically from Chrome/Firefox/Safari
-cd ~/leetcode-solutions && leetgo init
+# Create and initialize your solutions workspace
+mkdir leetcoderesearch-solutions && cd leetcoderesearch-solutions
+leetgo init -t us -l python   # authenticates via browser cookies
 
 # Also required
 git
@@ -47,15 +47,7 @@ The language defaults to `python3`. Supported: `python3`, `golang`, `cpp`, `java
 
 ## Configuration
 
-Set `LEETCODE_SOLUTIONS_DIR` to control where solutions and git history are stored (this should be your leetgo workspace — the directory containing `leetgo.yaml`):
-
-```bash
-export LEETCODE_SOLUTIONS_DIR=~/code/leetcode
-```
-
-Default: `~/leetcode-solutions/`
-
-The plugin uses `git` inside this directory to track the optimization journey. Each problem gets commits like:
+Run `/leetcode` from your `leetcoderesearch-solutions` directory (where `leetgo.yaml` lives). Solutions are generated there and the plugin uses `git` inside that directory to track the optimization journey. Each problem gets commits like:
 ```
 baseline: two-sum O(n²) [empirical ratio 9.1]
 iter-1: two-sum O(n) [ratio 2.9] via hash map

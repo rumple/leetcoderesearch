@@ -25,7 +25,10 @@ The empirical ratio table (t(3n)/t(n)) is the ground truth for complexity class:
 ```bash
 # LeetCode CLI
 brew install j178/tap/leetgo
-leetgo init   # authenticate with your LeetCode account
+
+# Authenticate — run this from your solutions workspace (NOT the plugin directory)
+# leetgo will pick up cookies automatically from Chrome/Firefox/Safari
+cd ~/leetcode-solutions && leetgo init
 
 # Also required
 git
@@ -44,7 +47,9 @@ The language defaults to `python3`. Supported: `python3`, `golang`, `cpp`, `java
 
 ## Configuration
 
-Set `LEETCODE_SOLUTIONS_DIR` to control where solutions and git history are stored:
+The plugin runs `leetgo` commands from whatever directory you invoke `/leetcode` in — that directory must contain a `leetgo.yaml`. The included `leetgo.yaml` is pre-configured; copy or symlink it into your solutions workspace if needed.
+
+Set `LEETCODE_SOLUTIONS_DIR` as a reference path for organizing work across problems:
 
 ```bash
 export LEETCODE_SOLUTIONS_DIR=~/code/leetcode
@@ -52,7 +57,7 @@ export LEETCODE_SOLUTIONS_DIR=~/code/leetcode
 
 Default: `~/leetcode-solutions/`
 
-The plugin uses `git` inside the solutions directory to track the optimization journey. Each problem gets commits like:
+Git tracking happens inside the **leetgo workspace** (wherever `leetgo pick` generates the solution file). Each problem gets commits like:
 ```
 baseline: two-sum O(n²) [empirical ratio 9.1]
 iter-1: two-sum O(n) [ratio 2.9] via hash map
@@ -64,6 +69,7 @@ iter-1: two-sum O(n) [ratio 2.9] via hash map
 .
 ├── .claude-plugin/plugin.json          # plugin manifest
 ├── commands/leetcode.md                # /leetcode slash command
+├── leetgo.yaml                         # leetgo config (pre-configured)
 ├── skills/leetcode-solver/
 │   ├── SKILL.md                        # autoresearch loop logic
 │   └── references/

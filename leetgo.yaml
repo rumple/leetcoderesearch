@@ -3,7 +3,7 @@
 # Your name
 author: Rumple
 # Language of the question description: 'zh' (Simplified Chinese) or 'en' (English).
-language: zh
+language: en
 code:
   # Language of code generated for questions: go, cpp, python, java... 
   # (will be overridden by command line flag -l/--lang).

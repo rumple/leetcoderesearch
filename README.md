@@ -47,9 +47,7 @@ The language defaults to `python3`. Supported: `python3`, `golang`, `cpp`, `java
 
 ## Configuration
 
-The plugin runs `leetgo` commands from whatever directory you invoke `/leetcode` in — that directory must contain a `leetgo.yaml`. The included `leetgo.yaml` is pre-configured; copy or symlink it into your solutions workspace if needed.
-
-Set `LEETCODE_SOLUTIONS_DIR` as a reference path for organizing work across problems:
+Set `LEETCODE_SOLUTIONS_DIR` to control where solutions and git history are stored (this should be your leetgo workspace — the directory containing `leetgo.yaml`):
 
 ```bash
 export LEETCODE_SOLUTIONS_DIR=~/code/leetcode
@@ -57,7 +55,7 @@ export LEETCODE_SOLUTIONS_DIR=~/code/leetcode
 
 Default: `~/leetcode-solutions/`
 
-Git tracking happens inside the **leetgo workspace** (wherever `leetgo pick` generates the solution file). Each problem gets commits like:
+The plugin uses `git` inside this directory to track the optimization journey. Each problem gets commits like:
 ```
 baseline: two-sum O(n²) [empirical ratio 9.1]
 iter-1: two-sum O(n) [ratio 2.9] via hash map

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Solve LeetCode problems using Karpathy's autoresearch loop: naive baseline → empirical benchmark → hypothesis → implement → benchmark → commit or discard → repeat",
   "author": {
-    "name": "amrut"
+    "name": "Rumple"
   },
   "license": "MIT",
   "keywords": ["leetcode", "algorithms", "competitive-programming", "autoresearch", "optimization"]

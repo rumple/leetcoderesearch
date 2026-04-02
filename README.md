@@ -77,7 +77,7 @@ iter-1: two-sum O(n) [ratio 2.9] via hash map
 
 From Claude Code:
 ```
-/install-plugin /Users/amrut/devel/leetcoderesearch
+/install-plugin /path/to/leetcoderesearch
 ```
 
 Or add to your Claude Code settings to load from this directory.

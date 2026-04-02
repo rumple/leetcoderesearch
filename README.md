@@ -81,9 +81,13 @@ iter-1: two-sum O(n) [ratio 2.9] via hash map
 
 ## Installing This Plugin
 
-From Claude Code:
-```
-/install-plugin /path/to/leetcoderesearch
+Pass the plugin directory when launching Claude Code:
+```bash
+claude --plugin-dir /path/to/leetcoderesearch
 ```
 
-Or add to your Claude Code settings to load from this directory.
+For persistent installation, add a local marketplace and install from it:
+```bash
+/plugin marketplace add /path/to/leetcoderesearch
+/plugin install leetcode-solver@local
+```
